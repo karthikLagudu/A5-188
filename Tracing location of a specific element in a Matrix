@@ -1,0 +1,61 @@
+// this code is to read matrix number of rows and coloums defined by he user and elements in them; and aslo finds the location of the specific given element.
+
+# include<stdio.h>
+int main()
+{
+    int x, y, m, n, search,mark;
+
+   
+    // Order of a Matrix
+    printf("Enter the Rows of the matrix \n");
+    scanf("%d",&m);
+    printf("Enter the Columns of the matrix \n");
+    scanf("%d",&n);
+    int mtx[m][n];
+   
+    // Reading values of the matrix
+    printf("Enter the elements of the matrix \n");
+    for (x=0; x<m; x++)
+    {
+        for (y=0; y<n; y++)
+        {
+            printf("Enter element [%d,%d] : ",x,y);
+            scanf("%d", &mtx[x][y]);
+        }
+    }
+   // Printing the matrix
+    printf("The matrix is \n");
+    for (x=0; x<m; x++)
+    {
+        for (y=0; y<n; y++)
+        {
+            printf("%d ", mtx[x][y]);
+        }
+        printf("\n");
+    }
+
+
+  // Finding the location of a specific element
+   printf("Enter the element you want to search: ");
+   scanf("%d", & search);
+   mark = 0;
+    for (x=0; x<m; x++)
+    {
+        for (y=0; y<n; y++)
+        {
+            if (mtx[x][y] == search)
+            {
+                mark = 1;
+                printf("%d Element is present in the matrix at position [%d,%d]\n",search, x, y);
+                break;
+            }
+        }
+    }
+   
+    if (mark == 0)
+    {
+        printf(" %d Element is not present in the matrix\n",search);
+    }
+ 
+    return 0;
+}
