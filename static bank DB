@@ -1,0 +1,71 @@
+#include<stdio.h>
+
+main()
+{
+
+int ch;
+int balance = 100000;
+int saving,key=0000,confo_pin;
+printf(" Hello User\n");
+printf("Please Enter your confidential pin ");
+scanf("%d",&confo_pin);
+if(confo_pin==key)
+{
+    
+printf("Your account is authorized ");    
+printf("\nenter your choice(1 to 3)\n1.Depoist \n2.Withdrawl \n3.Inquire Balance \n");
+printf("\n");
+scanf("%d",&ch);
+printf("\n");
+
+// a logan made 
+
+switch(ch)
+{
+
+case 1:
+printf("Please enter the amount of deposition\n");
+int credit;
+scanf("%d",&credit);
+saving = balance+credit;
+printf("Your Deposit has been sucessfuly affirmed \n");
+printf("Your Current saving is %d\n",saving );
+break;
+
+case 2 :
+printf("Please enter the amount of withdrawl\n");
+int withdrawl;
+scanf("%d",&withdrawl);
+if(balance>withdrawl)
+{
+ saving = balance-withdrawl;
+ printf("Transaction SUCESSFULL\n");
+ printf("Your Current saving is %d \n",saving );
+ 
+}
+  else {
+  printf("You do not have enough money for the transaction\n");
+  printf("TRANSACTION FAILED");
+    }
+break;
+
+//  A logan made code
+
+case 3:
+
+printf("Your current balance is %d",balance);
+break;
+default:
+
+printf("invalid operation");
+  printf("\nPlease TRY AGAIN");
+break;
+
+}
+}
+else{
+    printf("Sorry!\nThis is a not authorized pin!\nPlease TRY AGAIN");
+}
+}
+
+
