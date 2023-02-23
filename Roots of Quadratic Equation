@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+ 
+int main()
+{
+    int a, b, c;
+    float root1, root2, d;
+    printf("Enter the values of a, b and c \n");
+    scanf("%d%d%d", &a, &b, &c);
+    d = b * b - 4 * a * c;
+    if (d == 0)
+    {
+        printf("Both roots are equal.\n");
+        root1 = -b / (2.0 * a);
+        printf("Root1 = Root2 = %f\n", root1);
+    }
+    else if (d > 0)
+    {
+        printf("Both roots are real and distinct.\n");
+        root1 = (-b + sqrt(d)) / (2 * a);
+        root2 = (-b - sqrt(d)) / (2 * a);
+        printf("Root1 = %f\nRoot2 = %f\n", root1, root2);
+    }
+    else
+  {
+        printf("Roots are complex.\n");
+        root1 = root2 = -b / (2.0 * a);
+    printf("Root1 = %f+i%f\nRoot2 = %f-i%f\n", root1, sqrt(-d) / (2 * a), root2, sqrt(-d) / (2 * a));
+  }
+    return 0;
+}
+
