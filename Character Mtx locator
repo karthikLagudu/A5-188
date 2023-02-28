@@ -1,0 +1,77 @@
+#include<stdio.h>
+
+// Main function
+int main()
+{
+  // Create a character matrix
+  int row,col,i,j,count;
+  printf("Enter the number of ROWS for the Character Matrix : ");
+  scanf("%d",&row);
+  printf("Enter the number of COLOUMNS  for the Character Matrix :");
+  scanf("%d",&col);
+  char matrix[row][col];
+  
+  // Call functions
+  create_Char_Matrix(row, col, matrix);
+  print_Char_Matrix(row, col, matrix);
+  
+  // Ask for character
+  char c;
+  printf("Enter the character to search for: ");
+  scanf(" %c", &c);
+  
+  search_Char_Matrix(row, col, matrix, c);
+  
+  return 0;
+}
+
+//Function to create a character matrix
+void create_Char_Matrix(int row, int col, char matrix[row][col]) {
+  // Take user input
+  printf("\nEnter characters for the matrix of order (%d X %d): \n", row, col);
+  for (int i = 1; i <= row; i++)
+  {
+      for (int j = 1; j <= col; j++)
+      {
+          printf("Enter Character [%d,%d] : ",i,j);
+          scanf(" %c", &matrix[i][j]);
+      }
+  }
+}
+
+// Function to print the character matrix
+void print_Char_Matrix(int row, int col, char matrix[row][col]) {
+  // Printing the matrix 
+  printf("Enter characters for the matrix (%dx%d): \n", row, col);
+  for (int i = 1; i <= row; i++)
+  {
+      for (int j = 1; j <= col; j++)
+      {
+         printf(" %c", matrix[i][j]);
+      } printf("\n");
+  }
+}
+
+//Function to search for a character in the matrix
+void search_Char_Matrix(int row, int col, char matrix[row][col], char c) {
+  // Search for character
+int count=0;
+  for (int i = 1; i <= row; i++)
+    {
+         for (int j = 1; j <= col; j++)
+        {
+           if (matrix[i][j] == c)
+            {
+                count = count+1;
+                printf("Character found at the position [%d, %d]\n", i, j);
+                
+            }
+        }
+    }
+   
+    if (count == 0)
+    {
+        printf("Element is not present in the matrix\n");
+    }
+
+}
