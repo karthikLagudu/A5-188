@@ -1,0 +1,77 @@
+// writeen in functions making code into three major chunks 1. read , 2.print , 3.add
+# include<stdio.h>
+//Main function
+int main() 
+{
+    int x, y, m, n,j;
+   
+    // Order of a Matrix
+    printf("Enter the Rows of the matrix \n");
+    scanf("%d",&m);       // m is number of rows 
+    printf("Enter the Columns of the matrix \n");
+    scanf("%d",&n);      // n is number of columns
+    int mtx1[m][n];     // mtx1 is the first matrix
+    int mtx2[m][n];    // mtx2 is the Second matrix
+    int sum[m][n];
+    
+    read_matrix(m, n, mtx1); //Read values for the first matrix
+    read_matrix(m, n, mtx2); //Read values for the second matrix
+    printf("\nThe First matrix is \n");
+    print_matrix(m, n, mtx1); //Print the first matrix
+    printf("\nThe Second matrix is \n");
+    print_matrix(m, n, mtx2); //Print the second matrix
+    add_matrix(m, n, mtx1, mtx2, sum); //Add two matrices 
+   
+    return 0;
+}
+
+
+//Function to read values of the matrix 
+void read_matrix(int m, int n, int mtx[m][n]){
+	printf("\nEnter the elements of the matrix \n");
+    for (int x=0; x<m; x++)
+    { 
+        for (int y=0; y<n; y++)
+        {
+            printf("Enter element for the matrix [%d,%d] : ",x+1,y+1);
+            scanf("%d", &mtx[x][y]);
+        }
+    }
+}
+
+//Function to print the matrix
+void print_matrix(int m, int n, int mtx[m][n]){
+    for (int x=0; x<m; x++)
+    {
+        for (int y=0; y<n; y++)
+        {
+            printf("%d ", mtx[x][y]);
+           
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+//Function to add the two matrices
+void add_matrix(int m, int n, int mtx1[m][n], int mtx2[m][n], int sum[m][n]){
+	printf("\n Sum of the two matrices is : \n");
+            for (int x=0; x<m; x++)    // m is number of rows 
+            {                      // n is number of rows 
+                for (int y=0; y<n; y++)
+                {       // when given two rows and two coloumns 
+                    printf("[%d + %d]      ", mtx1[x][y] , mtx2[x][y]);
+                }
+                printf("\n");
+            }
+   printf("\n");
+
+	for (int x=0; x<m; x++) // m - row , n- columns
+            {
+                 for (int y=0; y<n; y++) 
+                 {         
+                        sum[x][y]=mtx1[x][y]+mtx2[x][y];
+                         printf("  %d   ", sum[x][y]);
+                 }printf("\n");
+            }
+}
